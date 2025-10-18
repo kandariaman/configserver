@@ -1,5 +1,5 @@
 build:
   id: 101
   version: 1.2.3
-  name: "Production-Build"
-  type: "Production Build"
+  name: "Native Production-Build"
+  type: "Native Production Build"
