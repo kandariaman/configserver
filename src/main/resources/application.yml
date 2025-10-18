@@ -1,28 +1,28 @@
 spring:
   application:
     name: configserver
-#  profiles:
-#    active: jdbc
-#  datasource:
-#    url: jdbc:mysql://localhost:3306/configdb
-#    username: ${USER}
-#    password: ${PASSWORD}
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#
-#  cloud:
-#    config:
-#      server:
-#        jdbc:
-#          sql: "SELECT property_key, property_value from PROPERTIES WHERE app_name=? and profile=? and Label=?"
-#          default-label: main
+  profiles:
+    active: jdbc
+  datasource:
+    url: jdbc:mysql://localhost:3306/configdb
+    username: ${USER}
+    password: ${PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   cloud:
     config:
       server:
-        git:
-          uri: https://github.com/kandariaman/app-configuration
-          username: ${GIT_USER}
-          password: ${GIT_TOKEN}
+        jdbc:
+          sql: "SELECT property_key, property_value from PROPERTIES WHERE app_name=? and profile=? and Label=?"
+          default-label: main
+
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://github.com/kandariaman/app-configuration
+#          username: ${GIT_USER}
+#          password: ${GIT_TOKEN}
 
 
 
