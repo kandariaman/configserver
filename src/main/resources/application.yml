@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: configserver
+#  profiles:
+#    active: jdbc
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/configdb
+#    username: ${USER}
+#    password: ${PASSWORD}
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#
+#  cloud:
+#    config:
+#      server:
+#        jdbc:
+#          sql: "SELECT property_key, property_value from PROPERTIES WHERE app_name=? and profile=? and Label=?"
+#          default-label: main
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/kandariaman/app-configuration
+          username: ${GIT_USER}
+          password: ${GIT_TOKEN}
+
+
+
+server:
+  port: 8888
+
+#encrypt:
+#  key: "0E329232EA6D0D73"
+
+encrypt:
+  key-store:
+    location: config-server.jks
+    password: mypass
+    alias: config-server-key

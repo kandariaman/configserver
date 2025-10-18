@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: configdemo
+
+  config:
+    import: configserver:http://localhost:8888
+
+  profiles:
+    active: dev
+
+build:
+  id: 10101
+  version: 10.2.3
+  name: "Application"
+  type: "Application Build"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+#build:
+#  id: ${ID}
+#  version: ${VERSION}
+#  name: ${NAME}
+
+#ID=9999;NAME=NEW_NAME;VERSION=3.3.3.3
